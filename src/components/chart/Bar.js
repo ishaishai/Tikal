@@ -1,4 +1,4 @@
-import { createRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const Bar = ({ character }) => {
     const [popularity, setPopularity] = useState(1)
@@ -16,14 +16,14 @@ const Bar = ({ character }) => {
     }, [character])
 
     useEffect(() => {
-        if (popularity < character.popularity) {
+        if (popularity < character?.popularity) {
             console.log("🚀 ~ file: Bar.js ~ line 20 ~ useEffect ~ popularity", popularity)
             setTimeout(() => {
                 setPopularity(popularity + 1)
 
             }, Math.floor(3500 / character.popularity))
         }
-    }, [popularity])
+    }, [popularity,character.popularity])
 
     return <div className="bar">
         <div className="bar-name">

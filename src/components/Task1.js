@@ -2,15 +2,13 @@ import { useMemo, useState } from "react";
 import { MAX_PER_PAGE } from "../utils/query";
 
 const Task1 = ({ characters, pages }) => {
-    console.log("🚀 ~ file: Task1.js ~ line 5 ~ Task1 ~ characters", characters.length)
-    console.log("🚀 ~ file: Task1.js ~ line 5 ~ Task1 ~ pages", pages)
-    const hasCharacters = useMemo(() => characters && characters.length);
-    const minShows = useMemo(() => hasCharacters && characters[0]?.popularity);
+    const hasCharacters = useMemo(() => characters && characters.length,[characters]);
+    const minShows = useMemo(() => hasCharacters && characters[0]?.popularity,[hasCharacters,characters]);
     const [currentPage, setCurrentPage] = useState(1)
-    const isNextDisabled = useMemo(() => currentPage === pages - 1)
-    const isPrevDisabled = useMemo(() => currentPage === 1)
-    const nextPage = useMemo(() => currentPage < pages - 1 ? currentPage + 1 : '')
-    const prevPage = useMemo(() => currentPage > 1 ? currentPage - 1 : '')
+    const isNextDisabled = useMemo(() => currentPage === pages - 1,[currentPage,pages])
+    const isPrevDisabled = useMemo(() => currentPage === 1,[currentPage])
+    const nextPage = useMemo(() => currentPage < pages - 1 ? currentPage + 1 : '',[currentPage,pages])
+    const prevPage = useMemo(() => currentPage > 1 ? currentPage - 1 : '',[currentPage])
 
     const setNextPage = () => {
         if (currentPage < pages - 1) {
