@@ -15,8 +15,8 @@ function App() {
     { variables: { ids: Array(countData?.characters?.info?.count).fill(1).map((n, i) => n + i).join(',') } }
   );
 
-  const isLoading = useMemo(() => dataLoading || !taskData)
-  
+  const isLoading = useMemo(() => dataLoading || !taskData, [dataLoading, taskData])
+
   const getTasksData = async () => {
     try {
       if (!charactersData?.charactersByIds?.length) return
@@ -33,7 +33,7 @@ function App() {
 
       let charactersTask2 = Object.entries(charactersDict).map(([name, popularity]) => { return { name, popularity } });;
 
-      let task1 = { characters: charactersTask1, pages: Math.ceil(charactersTask1.length / MAX_PER_PAGE)}
+      let task1 = { characters: charactersTask1, pages: Math.ceil(charactersTask1.length / MAX_PER_PAGE) }
       let task2 = { characters: charactersTask2 }
 
       setTaskData({ task1: { ...task1 }, task2 });
@@ -46,14 +46,14 @@ function App() {
     if (!countLoading) {
       GetCharactersByIds()
     }
-  }, [countLoading])
+  }, [countLoading, GetCharactersByIds])
 
 
   useEffect(() => {
     if (!dataLoading) {
       getTasksData();
     }
-  }, [dataLoading])
+  }, [dataLoading, getTasksData])
 
 
   return (
