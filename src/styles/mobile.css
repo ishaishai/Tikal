@@ -1,0 +1,56 @@
+@media only screen and (max-width: 768px) {
+    .app-box {
+        flex-direction: column;
+        padding: 0px 24px;
+    }
+
+    .container {
+        width:auto;
+    }
+    .divider {
+        display: none;
+    }
+
+    .loader {
+        border-width: 10px ;
+        border-top-width: 10px;
+        width: 30px;
+        height: 30px;
+    }
+
+    .task-header {
+        font-size: 12px;
+        align-self: flex-start;
+    }
+
+    table {
+        align-self: center;
+        width: 100%;
+        font-family: 'Titillium Web', sans-serif;
+        font-size: 8px;
+        margin-top: 16px;
+    }
+
+
+    .controls-box {
+        margin-top: 24px;
+    }
+
+    .bar-name {
+        font-size: 12px;
+    }
+
+    .bar-popularity {
+        font-size: 12px;
+        padding-left: 8px;
+        height: 30px;
+    }
+
+    .pages .page {
+        height: 20px;
+        width: 20px;
+        font-size: 10px;
+    }
+
+    
+}
