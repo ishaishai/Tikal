@@ -53,7 +53,7 @@ function App() {
     if (!dataLoading) {
       getTasksData();
     }
-  }, [dataLoading, getTasksData])
+  }, [dataLoading])
 
 
   return (
