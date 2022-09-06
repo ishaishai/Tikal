@@ -5,13 +5,13 @@ const Task1 = ({ characters, pages }) => {
     const hasCharacters = useMemo(() => characters && characters.length, [characters]);
     const minShows = useMemo(() => hasCharacters && characters[0]?.popularity, [hasCharacters, characters]);
     const [currentPage, setCurrentPage] = useState(1)
-    const isNextDisabled = useMemo(() => currentPage === pages - 1, [currentPage, pages])
+    const isNextDisabled = useMemo(() => currentPage === pages, [currentPage, pages])
     const isPrevDisabled = useMemo(() => currentPage === 1, [currentPage])
-    const nextPage = useMemo(() => currentPage < pages - 1 ? currentPage + 1 : '', [currentPage, pages])
+    const nextPage = useMemo(() => currentPage < pages ? currentPage + 1 : '', [currentPage, pages])
     const prevPage = useMemo(() => currentPage > 1 ? currentPage - 1 : '', [currentPage])
 
     const setNextPage = () => {
-        if (currentPage < pages - 1) {
+        if (currentPage < pages) {
             setCurrentPage(currentPage + 1)
         }
 

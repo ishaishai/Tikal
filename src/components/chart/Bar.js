@@ -17,7 +17,6 @@ const Bar = ({ character }) => {
 
     useEffect(() => {
         if (popularity < character?.popularity) {
-            console.log("🚀 ~ file: Bar.js ~ line 20 ~ useEffect ~ popularity", popularity)
             setTimeout(() => {
                 setPopularity(popularity + 1)
 
