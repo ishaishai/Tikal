@@ -2,13 +2,13 @@ import { useMemo, useState } from "react";
 import { MAX_PER_PAGE } from "../utils/query";
 
 const Task1 = ({ characters, pages }) => {
-    const hasCharacters = useMemo(() => characters && characters.length,[characters]);
-    const minShows = useMemo(() => hasCharacters && characters[0]?.popularity,[hasCharacters,characters]);
+    const hasCharacters = useMemo(() => characters && characters.length, [characters]);
+    const minShows = useMemo(() => hasCharacters && characters[0]?.popularity, [hasCharacters, characters]);
     const [currentPage, setCurrentPage] = useState(1)
-    const isNextDisabled = useMemo(() => currentPage === pages - 1,[currentPage,pages])
-    const isPrevDisabled = useMemo(() => currentPage === 1,[currentPage])
-    const nextPage = useMemo(() => currentPage < pages - 1 ? currentPage + 1 : '',[currentPage,pages])
-    const prevPage = useMemo(() => currentPage > 1 ? currentPage - 1 : '',[currentPage])
+    const isNextDisabled = useMemo(() => currentPage === pages - 1, [currentPage, pages])
+    const isPrevDisabled = useMemo(() => currentPage === 1, [currentPage])
+    const nextPage = useMemo(() => currentPage < pages - 1 ? currentPage + 1 : '', [currentPage, pages])
+    const prevPage = useMemo(() => currentPage > 1 ? currentPage - 1 : '', [currentPage])
 
     const setNextPage = () => {
         if (currentPage < pages - 1) {
@@ -21,6 +21,12 @@ const Task1 = ({ characters, pages }) => {
             setCurrentPage(currentPage - 1)
         }
     }
+
+    if (!hasCharacters) return <div className="container">
+        <span className="task-header error">
+            Can't find characters match your terms
+        </span>
+    </div>
 
     return <div className="container">
         <span className="task-header">

@@ -200,3 +200,7 @@ tr>td:nth-child(2) {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
+
+.error {
+    margin: auto;
+}

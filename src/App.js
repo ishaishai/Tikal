@@ -21,7 +21,7 @@ function App() {
     try {
       if (!charactersData?.charactersByIds?.length) return
       let characters = charactersData.charactersByIds.map((chr) => { return { name: chr.name, origin: chr.origin.name, dimension: chr.origin.dimension, popularity: chr.episode.length } })
-      let charactersTmp = characters.filter((chr) => chr.dimension?.includes("C-137"))
+      let charactersTmp = characters.filter((chr) => chr.origin?.includes("Earth (C-137)"))
       let characterMinShows = Math.min(...charactersTmp.map((chr) => chr.popularity))
 
       let charactersTask1 = charactersTmp.filter(chr => {
