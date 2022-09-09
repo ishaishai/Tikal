@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { MAX_PER_PAGE } from "../utils/query";
+import { MAX_PER_PAGE } from "../utils/enums";
 
 const Task1 = ({ characters, pages }) => {
     const hasCharacters = useMemo(() => characters && characters.length, [characters]);
