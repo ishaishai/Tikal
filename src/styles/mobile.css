@@ -5,14 +5,15 @@
     }
 
     .container {
-        width:auto;
+        width: auto;
     }
+
     .divider {
         display: none;
     }
 
     .loader {
-        border-width: 10px ;
+        border-width: 10px;
         border-top-width: 10px;
         width: 30px;
         height: 30px;
@@ -52,5 +53,10 @@
         font-size: 10px;
     }
 
-    
+    .error-box {
+        font-size: 12px;
+        align-self:flex-start;
+    }
+
+
 }

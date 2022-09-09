@@ -3,7 +3,7 @@ const { CHARACTERS, MAX_PER_PAGE, ORIGIN } = require('./enums');
 
 
 export async function getAppData() {
-    try {
+    
         let charactersCount = await getCharactersCount();
         let characters = await getAllCharacters(charactersCount)
 
@@ -13,10 +13,6 @@ export async function getAppData() {
         task1 = { characters: task1, pages: Math.ceil(task1.length / MAX_PER_PAGE) }
         task2 = { characters: task2 }
         return { task1, task2 }
-    } catch(error) {
-        console.error("~ file: apiHandler.js ~ line 18 ~ getAppData ~ error", error)
-        return null;
-    }
 }
 
 async function getTask1Data(characters) {

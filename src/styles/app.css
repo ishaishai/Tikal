@@ -201,6 +201,10 @@ tr>td:nth-child(2) {
     border-bottom-right-radius: 10px;
 }
 
-.error {
-    margin: auto;
+.error-box {
+    font-size: 18px;
+    align-self:center;
+    font-family: 'Titillium Web', sans-serif;
+    color: rgba(212, 19, 19, 0.7);
+    font-weight: 800;
 }

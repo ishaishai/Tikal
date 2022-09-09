@@ -1,13 +1,12 @@
 import { useMemo } from "react";
 import Chart from "./chart/Chart";
+import ErrorBox from "./ErrorBox";
 
 const Task2 = ({ characters }) => {
     const hasCharacters = useMemo(() => characters && characters.length, [characters]);
 
     if (!hasCharacters) return <div className="container">
-        <span className="task-header error">
-            Can't find characters match your terms
-        </span>
+        <ErrorBox message="Task 2: Can't find characters match your terms" />
     </div>
     
     return <div className="container">

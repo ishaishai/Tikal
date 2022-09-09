@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { MAX_PER_PAGE } from "../utils/enums";
+import ErrorBox from "./ErrorBox";
 
 const Task1 = ({ characters, pages }) => {
     const hasCharacters = useMemo(() => characters && characters.length, [characters]);
@@ -23,9 +24,7 @@ const Task1 = ({ characters, pages }) => {
     }
 
     if (!hasCharacters) return <div className="container">
-        <span className="task-header error">
-            Can't find characters match your terms
-        </span>
+        <ErrorBox message="Task 1: Can't find characters match your terms" />
     </div>
 
     return <div className="container">
