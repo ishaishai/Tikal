@@ -15,7 +15,7 @@ function App() {
   const getTasksData = async () => {
     try {
       let data = await getAppData()
-      setTaskData({ task1: data.task1, task2: null });
+      setTaskData({ task1: data.task1, task2: data.task2 });
     } catch (error) {
       console.error("~ file: App.js ~ line 19 ~ getAppData ~ error", error)
       setIsError(true)
